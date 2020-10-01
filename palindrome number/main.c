@@ -1,32 +1,25 @@
-#include <stdio.h>
-#include <stdlib.h>
-
-int main()
+#include<stdio.h>
+#include<string.h>
+void main()
 {
-    char string[100];
-    printf("Enter the string\n");
-    gets(string);
-    int i,count,temp=0;
-    count=strlen(string)-1;
-    //printf("%d\n",count);
-
-    for(i=0;i<strlen(string);i++)
+    char S[100];
+    int i,l,flag=0;
+	scanf("%s",S);
+	 l=strlen(S);
+     for(i=0;i<l;i++)
+	{
+		if(S[i]>=65&&S[i]<=90)
+        S[i]+=32;
+	}
+    for(i=0;i<l/2;i++)
     {
-        if(string[i]==string[count])
+        if(S[i]!=S[l-1-i])
         {
-            temp=1;
+             flag=1;
+             printf("NO");
+             break;
         }
-        else
-        {
-            temp=2;}
-        count--;
     }
-    //printf("%d",temp);
-    if(temp==1)
-    {
-        printf("Yes");
-    }
-    else
-        printf("No");
-    return 0;
+    if(flag==0)
+    printf("YES");   
 }
